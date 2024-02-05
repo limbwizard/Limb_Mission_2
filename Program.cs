@@ -1,6 +1,7 @@
 ﻿class Program
 {
     // Entry point of the dice rolling simulator program
+    // comment
     static void Main(string[] args)
     {
         Console.WriteLine("Welcome to the dice throwing simulator!");
