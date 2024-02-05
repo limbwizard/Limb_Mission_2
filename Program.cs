@@ -1,7 +1,6 @@
 ﻿class Program
 {
     // Entry point of the dice rolling simulator program
-    // comment
     static void Main(string[] args)
     {
         Console.WriteLine("Welcome to the dice throwing simulator!");
@@ -10,8 +9,8 @@
         // Input handling: Read and validate user input
         if (int.TryParse(Console.ReadLine(), out int numberOfRolls))
         {
-            // Roll dice and gather results
-            int[] sums = RollDices(numberOfRolls);
+            DiceRoller roller = new DiceRoller(); // Create a DiceRoller instance
+            int[] sums = roller.RollDices(numberOfRolls); // Roll dice and gather results
 
             // Display results in a formatted histogram
             Console.WriteLine("\nDICE ROLLING SIMULATION RESULTS");
@@ -39,25 +38,5 @@
 
         // End of program message
         Console.WriteLine("Thank you for using the dice throwing simulator. Goodbye!");
-    }
-
-    // Simulate dice rolls and return the sum frequency
-    private static int[] RollDices(int numberOfRolls)
-    {
-        // Initialize a Random instance for dice rolling
-        Random random = new Random();
-        int[] sums = new int[13]; // Array to store frequency of sums (2-12)
-
-        // Rolling dice specified number of times
-        for (int i = 0; i < numberOfRolls; i++)
-        {
-            // Simulate two dice rolls and increment corresponding sum
-            int rollOne = random.Next(1, 7);
-            int rollTwo = random.Next(1, 7);
-            sums[rollOne + rollTwo]++;
-        }
-
-        // Return the array with the frequencies of each possible sum
-        return sums;
     }
 }
